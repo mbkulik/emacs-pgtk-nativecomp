@@ -241,7 +241,8 @@ LDFLAGS=-Wl,-z,relro;  export LDFLAGS;
 %configure --with-dbus --with-gif --with-jpeg --with-png --with-rsvg \
             --with-tiff --with-xft --with-xpm --with-gpm=no \
             --with-xwidgets --with-modules --with-harfbuzz --with-cairo --with-json \
-            --with-pgtk --with-native-compilation --enable-link-time-optimization
+            --with-pgtk --with-native-compilation --enable-link-time-optimization \
+            CFLAGS="-O2 -mtune=native -march=native"
 
 %make_build NATIVE_FULL_AOT=1 bootstrap
 %{setarch} %make_build
