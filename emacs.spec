@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
-%global commit      56c63ca21b3e5e2d0bb05d3897ea287a754c5b29
+%global commit      db2ed9f333879e5ac283fb48c8b06ed4022f0af9
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20221019
+%global commit_date 20221026
 %global gitrel      .%{commit_date}.git%{shortcommit}
 
 # disable these for now until .pdmp is fixed
@@ -34,6 +34,7 @@ Source9:       emacs.service
 
 Patch1:        emacs-spellchecker.patch
 Patch2:        emacs-system-crypto-policies.patch
+Patch3:        block-align.patch
 
 BuildRequires: gcc
 BuildRequires: atk-devel
