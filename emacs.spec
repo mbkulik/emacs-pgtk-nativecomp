@@ -204,6 +204,8 @@ Development header files for Emacs.
 
 %patch1 -p1 -b .spellchecker
 %patch2 -p1 -b .system-crypto-policies
+%patch3 -p1 -b .block-align
+
 
 ./autogen.sh
 
