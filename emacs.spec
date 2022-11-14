@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
-%global commit      d2f956807e87d1a4797a8686725912c780061a58
+%global commit      723ceaca1d71850aed75431a503f8616cab8c103
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20221111
+%global commit_date 20221114
 %global gitrel      .%{commit_date}.git%{shortcommit}
 
 # disable these for now until .pdmp is fixed
@@ -34,7 +34,7 @@ Source9:       emacs.service
 
 Patch1:        emacs-spellchecker.patch
 Patch2:        emacs-system-crypto-policies.patch
-Patch3:        block-align.patch
+#Patch3:        block-align.patch
 
 BuildRequires: gcc
 BuildRequires: atk-devel
@@ -204,7 +204,7 @@ Development header files for Emacs.
 
 %patch1 -p1 -b .spellchecker
 %patch2 -p1 -b .system-crypto-policies
-%patch3 -p1 -b .block-align
+#%patch3 -p1 -b .block-align
 
 
 ./autogen.sh
