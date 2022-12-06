@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
-%global commit      3e00e50ee3d54537b8390b8d386387d01ae7553d
+%global commit      80df980e4100297942775eae4f89c5ccabe03afc
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20221204
+%global commit_date 20221206
 %global gitrel      .%{commit_date}.git%{shortcommit}
 
 # disable these for now until .pdmp is fixed
@@ -79,6 +79,7 @@ BuildRequires: jansson-devel
 BuildRequires: systemd-devel
 BuildRequires: lcms2-devel
 BuildRequires: systemd-rpm-macros
+BuildRequires: libtree-sitter-devel
 
 BuildRequires: gtk3-devel
 BuildRequires: webkit2gtk3-devel
