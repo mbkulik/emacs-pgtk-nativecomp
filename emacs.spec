@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
-%global commit      80df980e4100297942775eae4f89c5ccabe03afc
+%global commit      fbbf3610fd5b27873e13cfd7702d5b0bbb15c2f8
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20221206
+%global commit_date 20221209
 %global gitrel      .%{commit_date}.git%{shortcommit}
 
 # disable these for now until .pdmp is fixed
@@ -34,7 +34,7 @@ Source9:       emacs.service
 
 Patch1:        emacs-spellchecker.patch
 Patch2:        emacs-system-crypto-policies.patch
-Patch3:        block-align.patch
+#Patch3:        block-align.patch
 
 BuildRequires: gcc
 BuildRequires: atk-devel
@@ -205,7 +205,7 @@ Development header files for Emacs.
 
 %patch1 -p1 -b .spellchecker
 %patch2 -p1 -b .system-crypto-policies
-%patch3 -p1 -b .block-align
+#%patch3 -p1 -b .block-align
 
 
 ./autogen.sh
@@ -246,8 +246,7 @@ LDFLAGS=-Wl,-z,relro;  export LDFLAGS;
 %configure --with-dbus --with-gif --with-jpeg --with-png --with-rsvg \
             --with-tiff --with-xft --with-xpm --with-gpm=no \
             --with-xwidgets --with-modules --with-harfbuzz --with-cairo --with-json \
-            --with-tree-sitter --with-pgtk --with-native-compilation --enable-link-time-optimization \
-            CFLAGS="-O2 -mtune=native -march=native"
+            --with-tree-sitter --with-pgtk --with-native-compilation
 
 %make_build NATIVE_FULL_AOT=1 bootstrap
 %{setarch} %make_build
