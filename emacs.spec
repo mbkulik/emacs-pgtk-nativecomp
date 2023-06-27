@@ -34,7 +34,6 @@ Source9:       emacs.service
 
 Patch1:        emacs-spellchecker.patch
 Patch2:        emacs-system-crypto-policies.patch
-#Patch3:        block-align.patch
 
 BuildRequires: gcc
 BuildRequires: atk-devel
@@ -203,10 +202,8 @@ Development header files for Emacs.
 %prep
 %setup -q -n emacs-%{commit}
 
-%patch1 -p1 -b .spellchecker
-%patch2 -p1 -b .system-crypto-policies
-#%patch3 -p1 -b .block-align
-
+%patch -P 1 -p1 -b .spellchecker
+%patch -P 2 -p1 -b .system-crypto-policies
 
 ./autogen.sh
 
