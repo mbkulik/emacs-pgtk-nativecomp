@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
-%global commit      e88be844bf774b336ab67995e435416328b53776
+%global commit      6e4432673ca716755b8a71ed50011336ac57c2e4
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20230926
+%global commit_date 20231002
 %global gitrel      .%{commit_date}.git%{shortcommit}
 
 # disable these for now until .pdmp is fixed
